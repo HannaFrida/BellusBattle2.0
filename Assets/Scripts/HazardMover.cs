@@ -13,18 +13,17 @@ public class HazardMover : MonoBehaviour
     private float timer;
     private Vector3 moveVector;
     private Vector3 lowestPosition, highestPosition;
-    private bool hasReachedHighestPoint;
+    [SerializeField] private bool hasReachedHighestPoint;
     private bool runTimer = true;
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
-        lowestPoint = boxCollider.bounds.max.y;
+        lowestPoint = boxCollider.bounds.max.y; ;
         moveVector = new Vector3(0f, movingSpeed, 0f);
-        lowestPosition = new Vector3(transform.position.x, lowestPoint - boxCollider.size.y / 2, 0f);
-        lowestPosition = new Vector3(transform.position.x, lowestPoint - boxCollider.size.y / 2, 0f);
+        lowestPosition = new Vector3(transform.position.x, transform.position.y + boxCollider.size.y / 2, 0f);
         highestPosition = new Vector3(transform.position.x, highestPoint.transform.position.y - boxCollider.size.y / 2, 0f);
-        
+        Debug.Log(lowestPoint);
     }
 
     // Update is called once per frame
@@ -46,20 +45,26 @@ public class HazardMover : MonoBehaviour
     }
     private void MoveHazard()
     {
+        Debug.Log(moveVector);
         if(hasReachedHighestPoint == false)
         {
             transform.position = Vector3.SmoothDamp(transform.position, highestPosition, ref moveVector, smoothTime);
-            if (boxCollider.bounds.max.y >= highestPoint.position.y - 0.2f)
+            if (boxCollider.bounds.max.y >= highestPoint.position.y)
             {
+                moveVector = Vector3.zero;
                 Debug.Log(boxCollider.bounds.max.y);
                 hasReachedHighestPoint = true;
             }
         }
         else
         {
+            Debug.Log("dada");
             transform.position = Vector3.SmoothDamp(transform.position, lowestPosition, ref moveVector, smoothTime);
-            if (boxCollider.bounds.max.y <= lowestPoint + 0.2f)
+            Debug.Log(boxCollider.bounds.max.y + " lowest: " + lowestPoint);
+            if (transform.position.y <= lowestPosition.y + 1f)
             {
+                moveVector = Vector3.zero;
+                Debug.Log("yoo");
                 hasReachedHighestPoint = false;
                 runTimer = true;
             }

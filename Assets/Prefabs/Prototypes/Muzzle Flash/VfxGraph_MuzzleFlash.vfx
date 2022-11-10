@@ -16,10 +16,10 @@ MonoBehaviour:
   - title: Muzzle flash
     position:
       serializedVersion: 2
-      x: -1304.1001
-      y: -196.20007
-      width: 100
-      height: 100
+      x: -1001
+      y: -443
+      width: 1087
+      height: 2043
     contents:
     - model: {fileID: 8926484042661614908}
       id: 0
@@ -78,10 +78,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -1002
-    y: -444
-    width: 2913
-    height: 2354
+    x: -1001
+    y: -443
+    width: 2912
+    height: 2374
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614910}
   - {fileID: 8926484042661614913}
-  m_UIPosition: {x: -363.1001, y: -384.20007}
+  m_UIPosition: {x: -363, y: -384}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -677,7 +677,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614911}
   - {fileID: 8926484042661614912}
   m_OutputSlots: []
-  m_Disabled: 1
+  m_Disabled: 0
   repeat: 0
   spawnMode: 0
   delayMode: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614914}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
 --- !u!114 &8926484042661614914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614930}
   - {fileID: 8926484042661614935}
-  m_UIPosition: {x: -363.1001, y: 60.799927}
+  m_UIPosition: {x: -363, y: 61}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1531,7 +1531,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.1
+      m_SerializableObject: 0.11
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -363.1001, y: 486.79993}
+  m_UIPosition: {x: -363, y: 487}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -1595,7 +1595,8 @@ MonoBehaviour:
   - {fileID: 8926484042661614957}
   - {fileID: 8926484042661614959}
   - {fileID: 8926484042661614964}
-  m_UIPosition: {x: -363.1001, y: 617.7999}
+  - {fileID: 8926484042661615153}
+  m_UIPosition: {x: -363, y: 607}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1617,7 +1618,7 @@ MonoBehaviour:
   excludeFromTAA: 0
   sortingPriority: 0
   m_SubOutputs: []
-  cullMode: 0
+  cullMode: 3
   zWriteMode: 0
   zTestMode: 0
   colorMapping: 0
@@ -1795,7 +1796,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.20000000298023225,"z":0.30000001192092898}'
+      m_SerializableObject: '{"x":0.800000011920929,"y":2.0,"z":0.30000001192092898}'
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1931,7 +1932,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.2000000476837159,"y":1.600000023841858,"z":0.4000000059604645}'
+      m_SerializableObject: '{"x":1.5,"y":3.0,"z":0.5}'
     m_Space: 2147483647
   m_Property:
     name: B
@@ -2092,7 +2093,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2.3
+      m_SerializableObject: 2
     m_Space: 2147483647
   m_Property:
     name: A
@@ -2126,7 +2127,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2.5
+      m_SerializableObject: 2.3
     m_Space: 2147483647
   m_Property:
     name: B
@@ -3138,7 +3139,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.05
+      m_SerializableObject: 0.06
     m_Space: 2147483647
   m_Property:
     name: A
@@ -3643,7 +3644,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":-0.5,"y":-0.5,"z":-0.5}'
+      m_SerializableObject: '{"x":-0.8500000238418579,"y":-0.8500000238418579,"z":-0.8500000238418579}'
     m_Space: 2147483647
   m_Property:
     name: A
@@ -3779,7 +3780,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":-0.8500000238418579,"y":-0.8500000238418579,"z":-1.0}'
+      m_SerializableObject: '{"x":-1.5,"y":-1.5,"z":-1.5}'
     m_Space: 2147483647
   m_Property:
     name: B
@@ -3974,7 +3975,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.5
+      m_SerializableObject: 2
     m_Space: 2147483647
   m_Property:
     name: B
@@ -6514,7 +6515,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -724.1001, y: 1090.7999}
+  m_UIPosition: {x: -724, y: 1091}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -6923,7 +6924,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -956.1001, y: 1224.7999}
+  m_UIPosition: {x: -956, y: 1225}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -7848,7 +7849,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615136}
       inputSlot: {fileID: 8926484042661615097}
-    position: {x: -976.1001, y: 1032.7999}
+    position: {x: -976, y: 1033}
     expandedSlots: []
     expanded: 1
   - m_Id: 1
@@ -8399,3 +8400,26 @@ MonoBehaviour:
   needsComputeBounds: 0
   boundsMode: 0
   m_Space: 0
+--- !u!114 &8926484042661615153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16c6aeaef944094b9a1633041804207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 8926484042661614940}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Disabled: 1
+  mode: 0
+  axes: 4

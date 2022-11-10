@@ -18,12 +18,14 @@ MonoBehaviour:
     type: 3}
   damage: 1
   maxDistance: 3
-  projectile: {fileID: 2217352063105504401, guid: ed45301ffa672bf43b5fdda7e7f92191,
+  projectile: {fileID: 2217352063105504401, guid: ee72c8e87a0494a4abbcdd15ad76bb81,
     type: 3}
-  projectileForce: 1000
+  projectileForce: 3500
   currentAmmo: 3
   initialAmmo: 3
   magSize: 3
-  fireRate: 70
+  fireRate: 100
   pickupSound: {fileID: 0}
   shootAttackSound: {fileID: 0}
+  muzzleFlashGameObject: {fileID: 1298385045497319875, guid: c4f13cda770c9714ba5f9ea0f462adbd,
+    type: 3}
