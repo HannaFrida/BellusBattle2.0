@@ -18,7 +18,6 @@ TagManager:
   - Breakable
   - Muzzle
   - Target
-  - AI
   layers:
   - Default
   - TransparentFX

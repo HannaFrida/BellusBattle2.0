@@ -11,9 +11,6 @@ public class PlayerHealth : MonoBehaviour
     public static event OnGameOver onGameOver;
     [SerializeField] private AudioSource playerDeathSound;
     [SerializeField] private VisualEffect bloodSplatter;
-    [SerializeField] private VisualEffect poisoned;
-    private PlayerMovement pm;
-   
 
     private float health = 1;
     private bool isInvinsable=false;
@@ -26,21 +23,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider;
     [SerializeField] private GameObject rightArm;
     [SerializeField] private SkinnedMeshRenderer skr;
-    [SerializeField] private GameObject hips;
-    [SerializeField] private Animator anime;
-
 
 
     private void Start()
     {
-        pm = GetComponent<PlayerMovement>();
+       
     }
 
     private void OnLevelWasLoaded(int level)
     {
         CF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFocus>();
-        poisoned.gameObject.SetActive(false);
-        UnkillPlayer();
     }
 
     public void TakeDamage(float damage)
@@ -59,29 +51,12 @@ public class PlayerHealth : MonoBehaviour
         isInvinsable = value;
     }
 
-    public void PlayPoisoned()
-    {
-        poisoned.gameObject.SetActive(true);
-        poisoned.Play();
-
-    }
-
-    public void StopPoisoned()
-    {
-        poisoned.gameObject.SetActive(false);
-        poisoned.Stop();
-
-    }
 
     public void KillPlayer()
     {
         CF.RemoveTarget(gameObject.transform);
-        //gameObject.transform.position = deathPosition.position;
-        boxCollider.enabled = false;
+        gameObject.transform.position = deathPosition.position;
         bloodSplatter.Play();
-        hips.SetActive(true);
-        anime.enabled = false;
-        pm.enabled = false;
         /*
         boxCollider.enabled = false;
         rightArm.SetActive(false);
@@ -94,13 +69,8 @@ public class PlayerHealth : MonoBehaviour
     public void UnkillPlayer()
     {
         skr.enabled = true;
-        anime.enabled = true;
-        hips.SetActive(false);
-        hips.SetActive(true);
-        hips.SetActive(false);
-        hips.transform.position = Vector3.zero;
-        boxCollider.enabled = true;
-        pm.enabled = true;
+        skr.enabled = false;
+        skr.enabled = true;
         /*
         boxCollider.enabled = true;
         rightArm.SetActive(true);

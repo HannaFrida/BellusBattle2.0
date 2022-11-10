@@ -6,7 +6,7 @@ using TMPro;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private AudioMixer myAudioMixer;
     [SerializeField] private TextMeshProUGUI valumeValue;
     private void Start()
     {
@@ -15,9 +15,7 @@ public class SoundManager : MonoBehaviour
 
     public void SetValume(float sliderValue)
     {
-        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
+        myAudioMixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
         valumeValue.text = Mathf.Round(sliderValue * 10).ToString();
     }
-    
-    
 }

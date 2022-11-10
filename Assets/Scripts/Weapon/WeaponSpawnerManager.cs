@@ -72,11 +72,7 @@ public class WeaponSpawnerManager : MonoBehaviour
     {
         foreach (var spawner in choosenSpawners)
         {
-            if(spawner.HasWeapons() == false)
-            {
-                spawner.SpawnRandomWeapon();
-            }
-            
+            spawner.SpawnRandomWeapon();
         }
     }
     public void AddEmptySpawnerToChooseFrom(WeaponSpawner spawner)
