@@ -339,7 +339,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":3.0,"z":1.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":1.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614662}
   - {fileID: 8926484042661614664}
   - {fileID: 8926484042661614669}
-  m_UIPosition: {x: 804.91016, y: 619.76996}
+  m_UIPosition: {x: 793, y: 619}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2375,7 +2375,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":-4545108875569611731,"guid":"4e8885c253ab06042b22ffcd79df83eb","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":-2124705421725058983,"guid":"bbe0c37d2fe12584994de5e64f5ad2fe","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mesh
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661615188}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   mode: 5
   axes: 4
 --- !u!114 &8926484042661614657
@@ -2497,7 +2497,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.10000000149011612,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
     m_Space: 2147483647
   m_Property:
     name: Pivot
@@ -2722,7 +2722,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.6000000238418579,"y":2.0,"z":1.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":10.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -2730,8 +2730,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661614690}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3621,10 +3620,8 @@ MonoBehaviour:
   m_Tooltip: 
   m_Nodes:
   - m_Id: 0
-    linkedSlots:
-    - outputSlot: {fileID: 8926484042661614690}
-      inputSlot: {fileID: 8926484042661614665}
-    position: {x: 605.91016, y: 1343.77}
+    linkedSlots: []
+    position: {x: 495, y: 1344}
     expandedSlots: []
     expanded: 1
 --- !u!114 &8926484042661614690
@@ -3655,7 +3652,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":3.0,"z":1.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":1.0}'
     m_Space: 2147483647
   m_Property:
     name: o
@@ -3663,8 +3660,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661614665}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5083,7 +5079,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":-4545108875569611731,"guid":"4e8885c253ab06042b22ffcd79df83eb","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":-2124705421725058983,"guid":"bbe0c37d2fe12584994de5e64f5ad2fe","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mesh
@@ -5147,7 +5143,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614733}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   mode: 5
   axes: 4
 --- !u!114 &8926484042661614733
@@ -5600,7 +5596,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.2000000476837159,"y":2.0,"z":1.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":10.0}'
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -5608,8 +5604,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661614769}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6417,14 +6412,7 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes:
-  - m_Id: 0
-    linkedSlots:
-    - outputSlot: {fileID: 8926484042661614769}
-      inputSlot: {fileID: 8926484042661614746}
-    position: {x: 1333, y: 1344}
-    expandedSlots: []
-    expanded: 0
+  m_Nodes: []
 --- !u!114 &8926484042661614769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6461,8 +6449,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661614746}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614770
 MonoBehaviour:
   m_ObjectHideFlags: 0
