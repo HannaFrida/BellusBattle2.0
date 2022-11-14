@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDetails : MonoBehaviour
 {
-    public int playerID; // Stores the players ID
-    public Vector3 startPos; // Stores the start spawn position
+    public int playerID;
     public bool isAlive;
-    
-   
-    void Start()
+    [SerializeField] private Transform headGearSlot;
+
+    public Transform HeadGearSlot()
     {
-        transform.position = startPos; // Puts the player on the spawn position
-        isAlive = true;
+        return headGearSlot;
     }
 
-
-
-   
+    void Start()
+    {
+        isAlive = true;
+    }
 }

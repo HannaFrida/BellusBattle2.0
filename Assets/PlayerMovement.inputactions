@@ -16,17 +16,26 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "9fb80104-f90e-4cdf-b926-add27ba98fd2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Aim",
                     "type": "Value",
                     "id": "73477702-9213-443f-ac46-3de09c0fe29a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AimOverride",
+                    "type": "Value",
+                    "id": "97c78426-b574-4300-877c-93debf7375e8",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -182,6 +191,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4a61c8fd-8603-4c69-bbf6-eaeaa79b89d8",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4c824bf9-e120-4e85-9c2b-9466aad002d3",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -287,6 +307,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PickUp/Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7a532d3-f49c-4522-b6d3-152a395b5eaa",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimOverride",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

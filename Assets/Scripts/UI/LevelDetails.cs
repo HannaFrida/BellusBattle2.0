@@ -8,6 +8,8 @@ using TMPro;
 public class LevelDetails : MonoBehaviour
 {
     [SerializeField] private string scene;
+    [SerializeField] private Color color1;
+    [SerializeField] private Color color2;
     private Toggle toggle;
     private LevelManager levelManager;
     private Image image;
@@ -36,7 +38,7 @@ public class LevelDetails : MonoBehaviour
     public void ToggleValueChanged()
     {
         levelManager.ChangeScenesToChooseFrom(this);
-        if(toggle.isOn)image.color = Color.white;
-        else image.color = Color.black;
+        if(toggle.isOn)image.color = color1;
+        else image.color = color2;
     }
 }

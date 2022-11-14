@@ -41,12 +41,12 @@ namespace ItemNamespace
         private Projectile _projectile;
         private float _nextTimeToFire;
         private bool _isFiring;
-        [SerializeField] public Aim aim; // test to make bullet shoot in correct direction
+        //[SerializeField] public Aim aim; // test to make bullet shoot in correct direction
         private readonly Random _random = new();
 
         private void Awake()
         {
-            aim = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Aim>();
+            //aim = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Aim>();
         }
 
 

@@ -1,64 +1,88 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] CameraFocus CF;
-    public float health = 1;
-    public delegate void OnGameOver();
+	public delegate void OnGameOver();
     public static event OnGameOver onGameOver;
+    [SerializeField] private AudioSource playerDeathSound;
+    [SerializeField] private VisualEffect bloodSplatter;
+    [SerializeField] private VisualEffect poisoned;
+    private PlayerMovement pm;
+    
+    private float health = 1;
     private bool isInvinsable=false;
 
+    public float Health { get => health; }
+
+    //USCH
     [SerializeField] private BoxCollider boxCollider;
     [SerializeField] private GameObject rightArm;
     [SerializeField] private SkinnedMeshRenderer skr;
-    [SerializeField] private MeshRenderer gunMesh;
-    [SerializeField] private MeshRenderer swordMesh;
-    [SerializeField] private MeshRenderer grenadeMesh;
-    [SerializeField] private PickUp_ProtoV1 ppV1;
-
+    [SerializeField] private GameObject hips;
+    [SerializeField] private Animator anime;
+    
     private void Start()
     {
-        
+        pm = GetComponent<PlayerMovement>();
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        poisoned.gameObject.SetActive(false);
+        UnkillPlayer();
+    }
+
     public void TakeDamage(float damage)
     {
-        if(isInvinsable) return;
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("Ded");
             KillPlayer();
-            //onGameOver.Invoke();
+            playerDeathSound.Play();
         }
     }
+    
     public void SetInvincible( bool value)
     {
-        isInvinsable = value;
+	    isInvinsable = value;
     }
 
+    public void PlayPoisoned()
+    {
+        poisoned.gameObject.SetActive(true);
+        poisoned.Play();
 
+    }
 
+    public void StopPoisoned()
+    {
+        poisoned.gameObject.SetActive(false);
+        poisoned.Stop();
+    }
 
     public void KillPlayer()
     {
+	    //gameObject.transform.position = deathPosition.position;
         boxCollider.enabled = false;
-        rightArm.SetActive(false);
-        skr.enabled = false;
-        gunMesh.enabled = false;
-        grenadeMesh.enabled = false;
+        bloodSplatter.Play();
+        hips.SetActive(true);
+        anime.enabled = false;
+        pm.enabled = false;
     }
 
     public void UnkillPlayer()
     {
-        boxCollider.enabled = true;
-        rightArm.SetActive(true);
         skr.enabled = true;
-        gunMesh.enabled = false;
-        grenadeMesh.enabled = false;
-        swordMesh.enabled = true;
-        ppV1.isHoldingWeapon = false;
+        anime.enabled = true;
+        hips.SetActive(false);
+        hips.SetActive(true);
+        hips.SetActive(false);
+        hips.transform.position = Vector3.zero;
+        boxCollider.enabled = true;
+        pm.enabled = true;
     }
-    
 }

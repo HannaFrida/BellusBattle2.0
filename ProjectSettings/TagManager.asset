@@ -13,6 +13,12 @@ TagManager:
   - Grenade
   - Revolver
   - Obstacle
+  - Door
+  - GridMap
+  - Breakable
+  - Muzzle
+  - Target
+  - AI
   layers:
   - Default
   - TransparentFX

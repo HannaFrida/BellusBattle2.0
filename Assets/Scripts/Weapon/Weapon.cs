@@ -3,9 +3,8 @@ using Random = System.Random;
 
 public class Weapon : MonoBehaviour
 {
-	[SerializeField] 
+	[SerializeField]
 	public Aim aim; // test to make bullet shoot in correct direction
-	
 	[SerializeField] [Tooltip("How accurate the firearm is.")] [Range(0, 1)]
     private float inaccuracy = 1.0f;
     [SerializeField] [Tooltip("Rounds per second.")]
@@ -84,6 +83,7 @@ public class Weapon : MonoBehaviour
             Vector3 force = new Vector3(projectileForce * aim.transform.right.x, projectileForce * aim.transform.right.y, 0f);
             _projectile = firedProjectile.GetComponent<Projectile>();
             _projectile.GetComponent<Rigidbody>().AddForce(force);
+            _projectile.SetShooter(gameObject);
         }
     }
 }

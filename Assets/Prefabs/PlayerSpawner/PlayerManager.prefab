@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506790265948621578}
   - component: {fileID: 4506790265948621581}
-  - component: {fileID: 4506790265948621580}
-  - component: {fileID: 4506790265948621579}
+  - component: {fileID: 3861176862251672677}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -41,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4506790265948621583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
@@ -49,7 +48,7 @@ MonoBehaviour:
   m_NotificationBehavior: 1
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 1
+  m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -96,7 +95,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &4506790265948621580
+--- !u!114 &3861176862251672677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,34 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f567d90a01346842a911c7f8e79de01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
-  spawnLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &4506790265948621579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4506790265948621583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9649640f0963c914b82c6d61da676671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneIndex: 0
-  spawnLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  camera: {fileID: 0}
-  listOfPlayers: []
-  colors:
-  - {fileID: 2100000, guid: 6aaced500a74efc48b94a7eea97e5ecb, type: 2}
-  - {fileID: 2100000, guid: b33560ad662fdea44b44e438febb2704, type: 2}
-  - {fileID: 2100000, guid: 7850c118b7222294a89e2bf25285078c, type: 2}
-  - {fileID: 2100000, guid: d6b4a61cda23acf49aa9e7d120fc27b3, type: 2}
+  spawnLocations: []
+  materials:
+  - {fileID: 2100000, guid: 01b1fa9942b514446b155eab3c6e3d89, type: 2}
+  - {fileID: 2100000, guid: 0755f92c78e1f9441b718e920cdada9a, type: 2}
+  - {fileID: 2100000, guid: 51bc165d55a731448bdcc12efe6e60dc, type: 2}
+  - {fileID: 2100000, guid: fb35d03ef6c871243ac3087919e20527, type: 2}

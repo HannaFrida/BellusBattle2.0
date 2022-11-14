@@ -25,8 +25,6 @@ public class GameController : MonoBehaviour
     private void DisableInput()
     {
         Debug.Log("Input was disabled");
-        //gameObject.GetComponent<PlayerDetails>().isAlive = false;
-        //CF.RemoveTarget(transform);
         gameObject.GetComponent<PlayerInputManager>().gameObject.SetActive(false);
         gameObject.SetActive(false);
     }

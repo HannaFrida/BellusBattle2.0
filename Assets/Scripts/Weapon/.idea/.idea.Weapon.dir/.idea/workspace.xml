@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="445b4550-06c6-4b00-8dd9-edfc57547fc3" name="Changes" comment="" />
+    <list default="true" id="445b4550-06c6-4b00-8dd9-edfc57547fc3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Weapon.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Weapon.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +49,7 @@
       <updated>1665563040472</updated>
       <workItem from="1665563073084" duration="710000" />
       <workItem from="1665563800872" duration="50000" />
+      <workItem from="1667994526210" duration="86000" />
     </task>
     <servers />
   </component>

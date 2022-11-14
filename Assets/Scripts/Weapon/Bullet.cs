@@ -1,46 +1,72 @@
 using System.Collections;
 using UnityEngine;
+using Random = System.Random;
 
 public class Bullet : Projectile
 {
 	[SerializeField] [Tooltip("For how long the bullet will exist for in seconds.")]
 	private float lifeSpan = 5.0f;
-	CameraFocus cf;
+	[SerializeField, Tooltip("Type of projectile (e.g. bullet or grenade)")]
+	private string projectileName;
+	[SerializeField, Tooltip("Sound made when bullet hits something")]
+	public AudioSource[] hitSounds;
+
+	public float bulletDamage;
+
+	private GameObject shooter;
 
 	private void Start(){
-		cf = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFocus>();
 		StartCoroutine(Shoot(lifeSpan));
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		GameObject playerGo = other.gameObject;
-		if (playerGo.CompareTag("Player"))
+		if (playerGo.CompareTag("Player") && Shooter != playerGo)
 		{
-			//playerGo.SetActive(false);
-			playerGo.GetComponent<PlayerHealth>().KillPlayer();
-			cf.RemoveTarget(playerGo.transform);
-			playerGo.GetComponent<PlayerHealth>().TakeDamage(1);
-			
-			PlayerDeathEvent pde = new PlayerDeathEvent{
-				PlayerGo = other.gameObject,
-				Kille = other.name,
-				KilledBy = "No Idea-chan",
-				KilledWith = "Bullets",
-			};
-			pde.FireEvent();
+			playerGo.GetComponent<PlayerHealth>().TakeDamage(bulletDamage);
 
+            if (playerGo.GetComponent<PlayerHealth>().Health <= 0)
+            {
+				PlayerDeathEvent pde = new PlayerDeathEvent{
+					kille = other.gameObject,
+                	killer = shooter,
+                	killedWith = projectileName,
+                };
+                pde.FireEvent();
+			}
 			Die();
 		}
 
-		if (other.gameObject.tag == "Obstacle")
+		if(other.gameObject.CompareTag("Target"))
+        {
+			GetComponent<Destroy>().gone();
+		}
+
+		if (other.gameObject.CompareTag("Obstacle"))
 		{
 			Debug.Log("Obstacle");
-			Destroy(gameObject);
+			Die();
 			return;
 		}
 
+        if (other.gameObject.CompareTag("Breakable"))
+        {
+			Destroy(other.gameObject);
+			Die();
+        }
+
+		if (hitSounds.Length > 0)
+		{
+			hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)].Play();
+		}
+
 	}
+
+	public void SetDamage(float setTo)
+    {
+		bulletDamage = setTo;
+    }
 
 	private IEnumerator Shoot(float seconds){
 		yield return new WaitForSeconds(seconds);

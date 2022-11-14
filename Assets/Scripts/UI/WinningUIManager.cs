@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 
 public class WinningUIManager : MonoBehaviour
 {
-    private ScoreManager scoreManager;
     [SerializeField] private GameObject[] panels;
-    [SerializeField] private float timeTillQuit; 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
-        StartCoroutine(TimeToQuit());
+        PlayerWonEvent.RegisterListener(ShowPanels);
+    }
+
+    public void ShowPanels(PlayerWonEvent pwe)
+    {
         for(int i = 0; i < panels.Length; i++)
         {
-            if(scoreManager.winner == i+1)
+            if(pwe.player.GetComponent<PlayerDetails>().playerID == i+1)
             {
                 panels.ElementAt(i).gameObject.SetActive(true);
             }
@@ -26,9 +26,8 @@ public class WinningUIManager : MonoBehaviour
         }
     }
 
-    private IEnumerator TimeToQuit()
+    private void OnDestroy()
     {
-        yield return new WaitForSeconds(timeTillQuit);
-        Application.Quit();
+        PlayerWonEvent.UnregisterListener(ShowPanels);
     }
 }
