@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
+    /*
     private enum WhichScenesListToPlay{ ScenesFromBuild, ScenesFromList, ScenesFromBuildAndList };
     [SerializeField] WhichScenesListToPlay scenceToPlay;
     private enum WhichOrderToPlayScenes { Random, NumiricalOrder };
@@ -132,9 +133,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)));
     }
 }
+    */
 
-
-
+}
 
 
 

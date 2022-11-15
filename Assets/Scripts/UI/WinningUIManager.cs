@@ -14,6 +14,7 @@ public class WinningUIManager : MonoBehaviour
         scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
         for(int i = 0; i < panels.Length; i++)
         {
+            /*
             if(scoreManager.Winner == i+1)
             {
                 panels.ElementAt(i).gameObject.SetActive(true);
@@ -22,6 +23,7 @@ public class WinningUIManager : MonoBehaviour
             {
                 panels.ElementAt(i).gameObject.SetActive(false);
             }
+            */
         }
     }
 }

@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
 	
 	[SerializeField] private CameraFocus camera;
     public static GameManager Instance;
-    private List<GameObject> players = new List<GameObject>();
-    private List<GameObject> playersAlive = new List<GameObject>();
+    [SerializeField] private List<GameObject> players = new List<GameObject>();
+    [SerializeField] private List<GameObject> playersAlive = new List<GameObject>();
     private bool gameHasStarted;
 
     [Header("Poängrelaterat")]
@@ -46,13 +46,15 @@ public class GameManager : MonoBehaviour
 	{
 		if(level != 0)
 		{
-            playersAlive = players;
+            gameHasStarted = true;
+            playersAlive = new List<GameObject>(players);
         }
 		
 	}
 	private void Awake()
 	{
 		Instance = this;
+        DontDestroyOnLoad(this);
         AddScenesToPlay();
      
     }
@@ -97,6 +99,11 @@ public class GameManager : MonoBehaviour
     private void ClearScore()
     {
         scoreDic.Clear();
+    }
+
+    public List<GameObject> GetAllPlayers()
+    {
+        return players;
     }
 
     private void CheckPlayersLeft()
