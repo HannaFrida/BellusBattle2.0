@@ -75,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void KillPlayer()
     {
-        CF.RemoveTarget(gameObject.transform);
+        GameManager.Instance.PlayerDeath(gameObject);
         //gameObject.transform.position = deathPosition.position;
         boxCollider.enabled = false;
         bloodSplatter.Play();

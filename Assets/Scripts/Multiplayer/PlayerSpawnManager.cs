@@ -16,8 +16,8 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
-        foreach (GameObject player in scoreManager.players)
+        //scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        foreach (GameObject player in GameManager.Instance.GetAllPlayers())
         {
             player.SetActive(true);
         }
