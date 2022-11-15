@@ -11,11 +11,11 @@ public class WinningUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        //scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
         for(int i = 0; i < panels.Length; i++)
         {
-            /*
-            if(scoreManager.Winner == i+1)
+            
+            if(GameManager.Instance.GetWinnerID() == i+1)
             {
                 panels.ElementAt(i).gameObject.SetActive(true);
             }
@@ -23,7 +23,7 @@ public class WinningUIManager : MonoBehaviour
             {
                 panels.ElementAt(i).gameObject.SetActive(false);
             }
-            */
+            
         }
     }
 }

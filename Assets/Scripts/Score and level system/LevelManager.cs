@@ -133,8 +133,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)));
     }
 }
-    */
-
+    
+}*/
 }
 
 

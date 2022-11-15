@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float giveScoreTimer;
     [SerializeField] private bool hasOnePlayerLeft;
     [SerializeField, Tooltip("Amount of time until the last player alive recieves their score")] private float giveScoreTime;
+    private int winnerID;
 
     [Header("LevelRelaterat")]
     [SerializeField] WhichScenesListToPlay scenceToPlay;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
 	{
 		if(level != 0)
 		{
+            giveScoreTimer = 0f;
             gameHasStarted = true;
             playersAlive = new List<GameObject>(players);
         }
@@ -143,17 +146,19 @@ public class GameManager : MonoBehaviour
 
     private void GiveScoreAfterTimer()
     {
-        GameObject winner = playersAlive[0];
+        
         giveScoreTimer += Time.deltaTime;
         if (giveScoreTimer <= giveScoreTime) return;
 
 
         if (playersAlive.Count != 0)
         {
+            GameObject winner = playersAlive[0];
             AddScore(playersAlive[0]);
             hasGivenScore = true;
             if (getScore(winner) == scoreToWin)
             {
+                winnerID = winner.GetComponent<PlayerDetails>().playerID;
                 ClearScore();
                 Finish(gameObject);
                 //Nån har vunnit!
@@ -265,6 +270,11 @@ public class GameManager : MonoBehaviour
         Destroy(destroyMe);
         Destroy(gameObject);
         SceneManager.LoadScene(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)));
+    }
+
+    public int GetWinnerID()
+    {
+        return winnerID;
     }
 
 
