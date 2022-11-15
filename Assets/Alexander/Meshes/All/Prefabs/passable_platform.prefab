@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2346048765106792386}
   m_Layer: 7
   m_Name: passable_platform
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

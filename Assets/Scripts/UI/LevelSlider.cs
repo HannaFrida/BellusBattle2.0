@@ -14,7 +14,7 @@ public class LevelSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nmrOfLevels = 1;
+        nmrOfLevels = 5;
         /*
         slider = GetComponent<Slider>();
         slider.minValue = 1;

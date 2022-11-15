@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,8 +44,9 @@ public class PlayerJoinManager : PlayerSpawnManager
         //accessory.transform.SetParent(playerInput.gameObject.transform);
 
         Renderer renderer = playerInput.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        TextMeshPro indicatorText = playerInput.gameObject.GetComponentInChildren<TextMeshPro>();
         //Activates Player characteraccessories and assigns material based on characterIndex
-        playerInput.gameObject.GetComponentInChildren<CharacterCustimization>().ActivateAccessories(playerInput.playerIndex, renderer);
+        playerInput.gameObject.GetComponentInChildren<CharacterCustimization>().ActivateAccessories(playerInput.playerIndex, renderer, indicatorText);
 
     }
     private void AddPlayerInFocus(Transform player)

@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     private float movementX, movementY;
     private float deceleration;
     
-    private float coyoteTimer, bufferTimer;
+    private float coyoteTimer, bufferTimer, knockBackTimer;
     private float horizontalSkinWidth = 0.2f;
     private float verticalSkinWidth = 0.1f;
     private float downwardInput;
@@ -87,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
     private float initialSpeed;
     private float playerHeight;
 
+    private float knockBackTime = 0.2f;
+
     private bool hasJumpedOnGround, hasDoubleJump, hasCoyoteTime;
     
     
@@ -94,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isStandingOnOneWayPlatform;
     private bool runBufferTimer;
     private bool hasJumpBuffer;
+    private bool hasBeenKnockedBack;
+    private bool isGrounded;
   
     void Start()
     {
@@ -109,25 +113,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(velocity.y);
+        isGrounded = IsGrounded;
         UpdateRayCastOrgins();
         UpdateMovementForce();
         UpdateCoyoteTime();
+        RunKnockbackTimer();
         
-        if (IsGrounded == false)
+        if (isGrounded == false)
         {
             movementY = Mathf.MoveTowards(movementY, downwardForce, airResistance * Time.deltaTime);
             
         }
 
-        if (IsGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
-            landSound.Play();
+
             movementY = 0;
             coyoteTimer = 0;
             hasCoyoteTime = true;
             hasDoubleJump = true;
             hasJumpedOnGround = false;
+            landSound.Play();
+            
             
             if (hasJumpBuffer)
             {
@@ -195,9 +202,9 @@ public class PlayerMovement : MonoBehaviour
             isStandingOnOneWayPlatform = false;
             return;
         }
-        else if (IsGrounded || hasCoyoteTime || hasDoubleJump)
+        else if (isGrounded || hasCoyoteTime || hasDoubleJump)
         {
-            if (IsGrounded)
+            if (isGrounded)
             {
                 hasJumpedOnGround = true;
                 JumpSound.Play();
@@ -206,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 JumpSound.Play();
                 MuzzleFlashIns = Instantiate(doubleJumpVFX, transform.position, transform.rotation);
+                Destroy(MuzzleFlashIns, 1.5f);
                 StartCoroutine(VFXRemover());
                 hasDoubleJump = false;
                 jumpDecreaser = doubleJumpDecreaser;
@@ -241,6 +249,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void RunKnockbackTimer()
+    {
+        if (hasBeenKnockedBack == false) return;
+
+        knockBackTimer += Time.deltaTime;
+
+        if(knockBackTimer >= knockBackTime)
+        {
+            hasBeenKnockedBack = false;
+            knockBackTimer = 0f;
+        }
+    }
+
     private void EdgeControl(RaycastHit hit)
     {
         float hitColliderBuffer = 0.2f; // Avståndet spelaren kommer att placeras över den träffade colliderns största y-värde
@@ -266,6 +287,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateMovementForce()
     {
+        if (hasBeenKnockedBack) return;
+
         if(movementAmount > 0.1f || movementAmount < -0.1f)
         {
             if (isMovingRight)
@@ -307,7 +330,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateCoyoteTime()
     {
-        if (IsGrounded || !hasCoyoteTime) return;
+        if (isGrounded || !hasCoyoteTime) return;
  
         if (coyoteTimer > coyoteTime || hasJumpedOnGround)
         {
@@ -343,13 +366,12 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Physics.Raycast(rayOrigin, Vector2.up * directionY, out hit, verticalRayLength, oneWayLayer))
             {
-                if (velocity.y > 0)
-                {
-                    return;
-                }
-                else if(hit.collider.bounds.min.y < boxCollider.bounds.min.y)
+                if (velocity.y > 0) return;
+
+                if (hit.collider.bounds.max.y < boxCollider.bounds.min.y)
                 {
                     velocity.y = 0;
+                    movementY = 0;
                 }
             } 
         }
@@ -425,12 +447,13 @@ public class PlayerMovement : MonoBehaviour
         movementY = 0;
     }
 
-
     public void AddExternalForce(Vector2 force)
     {
+        hasBeenKnockedBack = true;
+        knockBackTimer = 0f;
         movementY = force.y;
         movementX = force.x;
-        velocity.y = 0;
         
     }
+
 }
