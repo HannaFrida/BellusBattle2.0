@@ -28,14 +28,13 @@ public class ScoreManager : MonoBehaviour
         set { gameHasStarted = value; }
     }
 
+    public Dictionary<GameObject,int> ScoreDic {get=> scoreDic;}
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-
-
-   
 
     private void OnLevelWasLoaded(int level)
     {
