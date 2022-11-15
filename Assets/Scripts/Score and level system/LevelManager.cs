@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject levelXPrefab;
 
+    [SerializeField] TransitionScreen transitionScreen;
+    public string nextScene;
 
     public List<string> scenesToChooseFrom = new List<string>();
     public List<string> scenesToRemove = new List<string>();
@@ -32,9 +34,15 @@ public class LevelManager : MonoBehaviour
         sceneCount = SceneManager.sceneCountInBuildSettings;
         scenesToRemove.Add("MainMenu");
         scenesToRemove.Add("The_End");
+        scenesToRemove.Add("TransitionScene");
         LoadScenesList();
         if(SceneManager.GetActiveScene().buildIndex == 0) CreateLevelsUI();
     }
+    private void Update()
+    {
+        //transitionScreen = GameObject.FindGameObjectWithTag("Transition").GetComponent<TransitionScreen>();
+    }
+
     public void LoadScenesList()
     {
         if (scenceToPlay == WhichScenesListToPlay.ScenesFromBuild) CreateListOfScenesFromBuild();
@@ -96,28 +104,47 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextScene()
     {
+        SceneManager.LoadScene("TransitionScene");
+        transitionScreen = GameObject.FindGameObjectWithTag("Transition").GetComponent<TransitionScreen>();
+
         if (scenesToChooseFrom.Count <= 0)
         {
             Application.OpenURL("https://www.youtube.com/watch?v=WEEM2Qc9sUg");
             return;
         }
-        if (playingScenesOrder == WhichOrderToPlayScenes.Random) LoadNextSceneInRandomOrder();
-        else if (playingScenesOrder == WhichOrderToPlayScenes.NumiricalOrder) LoadNextSceneInNumericalOrder();
+        if (playingScenesOrder == WhichOrderToPlayScenes.Random)
+        {
+            LoadNextSceneInRandomOrder();
+            StartCoroutine(transitionScreen.LoadYourAsyncScene(nextScene));
+            Debug.Log("courtine");
+        }
+        else if (playingScenesOrder == WhichOrderToPlayScenes.NumiricalOrder)
+        {
+            LoadNextSceneInNumericalOrder();
+            StartCoroutine(transitionScreen.LoadYourAsyncScene(nextScene));
+            Debug.Log("courtine");
+        }
         if (scenesToChooseFrom.Count <= 0)
         {
             LoadScenesList();
         }
+        
     }
-    private void LoadNextSceneInNumericalOrder()
+    
+    private string LoadNextSceneInNumericalOrder()
     {
-        SceneManager.LoadScene(scenesToChooseFrom.ElementAt(0));
+        //SceneManager.LoadScene(scenesToChooseFrom.ElementAt(0));
+        nextScene = scenesToChooseFrom.ElementAt(0);
         scenesToChooseFrom.RemoveAt(0);
+        return nextScene;
     }
-    private void LoadNextSceneInRandomOrder()
+    private string LoadNextSceneInRandomOrder()
     {
         int randomNumber = Random.Range(0, scenesToChooseFrom.Count);
-        SceneManager.LoadScene(scenesToChooseFrom.ElementAt(randomNumber));
+        //SceneManager.LoadScene(scenesToChooseFrom.ElementAt(randomNumber));
+        nextScene = scenesToChooseFrom.ElementAt(randomNumber);
         scenesToChooseFrom.RemoveAt(randomNumber);
+        return nextScene;
     }
     public void Finish(GameObject destroyMe) 
     {
@@ -131,6 +158,11 @@ public class LevelManager : MonoBehaviour
         Destroy(gameObject);
         SceneManager.LoadScene(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)));
     }
+
+    
+
+
+
 }
 
 
